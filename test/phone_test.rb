@@ -111,6 +111,18 @@ class PhoneTest < Phoner::TestCase
     assert_equal Phoner::Phone.valid?('385915125486'), true
   end
 
+  def test_parse_with_multiple_country_codes
+    assert_equal Phoner::Phone.parse('915125486', :country_code => ['385', '47'])[:country_code], '385'
+    assert_equal Phoner::Phone.parse('915125486', :country_code => ['47', '385'])[:country_code], '385'
+    assert_equal Phoner::Phone.parse('90123456', :country_code => ['385', '47'])[:country_code], '47'
+    assert_equal Phoner::Phone.parse('90123456', :country_code => ['47', '385'])[:country_code], '47'
+
+    assert_equal Phoner::Phone.valid?('90123456', :country_code => ['385', '47']), true
+    assert_equal Phoner::Phone.valid?('915125486', :country_code => ['385', '47']), true
+    assert_equal Phoner::Phone.valid?('4790123456', :country_code => ['385', '47']), true
+    assert_equal Phoner::Phone.valid?('385915125486', :country_code => ['385', '47']), true
+  end
+
   def test_doesnt_validate
     assert_equal Phoner::Phone.valid?('asdas'), false
     assert_equal Phoner::Phone.valid?('38591512548678'), false

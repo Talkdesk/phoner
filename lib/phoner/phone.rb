@@ -66,7 +66,14 @@ module Phoner
       options[:country_code] ||= self.default_country_code
       options[:area_code] ||= self.default_area_code
 
-      parts = split_to_parts(normalized, options)
+      if options[:country_code].is_a?(Array)
+        options[:country_code].find do |country_code|
+          parts = split_to_parts(normalized, options.merge(:country_code => country_code))
+          return parts if parts
+        end
+      else
+        parts = split_to_parts(normalized, options)
+      end
 
       pn = Phone.new(parts) if parts
       if pn.present? and extension.present?
