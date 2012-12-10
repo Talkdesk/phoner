@@ -1,9 +1,5 @@
-$:.unshift(File.dirname(__FILE__) + '/../lib')
-
-require 'rubygems'
-
 require 'test/unit'
-require 'phone'
+require 'phoner'
 
 def parse_test(raw, country_code, area_code, number, country_name = nil, is_mobile = nil)
   pn = Phoner::Phone.parse(raw)
