@@ -994,11 +994,15 @@
   :international_dialing_prefix: "00"
 "39": 
   :country_code: "39"
-  :national_dialing_prefix: None
+  :national_dialing_prefix: "0"
   :char_2_code: None
   :char_3_code: "IT"
   :name: Italy
   :international_dialing_prefix: "00"
+  :area_code: "[1-8]"
+  :local_number_format: "\\d{8}"
+  :mobile_format: "3\\d{8,10}"
+  :number_format: "[1-8]\\d{8,10}"
 "265": 
   :country_code: "265"
   :national_dialing_prefix: None
