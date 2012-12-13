@@ -43,6 +43,12 @@ class PTTest < Phoner::TestCase
   end
 
   ## 3: Nomad services
+
+  # VoIP Carriers
+  def test_voip
+    parse_test('+351 30 880 2999', '351', '30', '8802999')
+  end
+
   ## 4: Not used
   ## 5: Free
   ## 6: Audiotext service, data network access...

@@ -1113,7 +1113,7 @@
   :char_3_code: "PT"
   :name: Portugal
   :international_dialing_prefix: "00"
-  :area_code: "2[12]|2[3-9][1-9]|70[78]|80[089]|9[136]|92[1-9]"
+  :area_code: "2[12]|2[3-9][1-9]|30|70[78]|80[089]|9[136]|92[1-9]"
   :local_number_format: "\\d{6,7}"
   :mobile_format: "9\\d{8}"
   :number_format: "\\d{9}"
